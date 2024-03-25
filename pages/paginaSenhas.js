@@ -1,9 +1,13 @@
 import { View, StyleSheet, Text, FlatList } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+
 import Armazenamento from "../hooks/bancoTokens";
 import { CaixaToken } from '../components/tokenView'
+
 import { useState, useEffect } from 'react';
 import { useIsFocused } from "@react-navigation/native";
+
+import { Ionicons } from '@expo/vector-icons/';
 
 export function PaginaSenhas() {
     const { obterItem, removerItem } = Armazenamento();
@@ -56,13 +60,17 @@ export function PaginaSenhas() {
                     style={{ flex: 1, paddingTop: 14, }}
                     data={listaTokens}
                     keyExtractor={(item) => String(item)}
-                    renderItem={({ item }) => <CaixaToken
-                        token={item}
-                        removerToken={() => deletarToken(item)}
-                    />}
+                    renderItem={({ item }) => (
+                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <Ionicons name="trash" size={24} color="grey" style={{ marginRight: 10 }} />
+                            <CaixaToken
+                                token={item}
+                                removerToken={() => deletarToken(item)}
+                            />
+                        </View>
+                    )}
                 />
             </View>
-
         </SafeAreaView>
     )
 }
