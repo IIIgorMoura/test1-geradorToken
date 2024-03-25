@@ -35,8 +35,8 @@ export function ModalTokens({ token, fechar }) {
                             Voltar
                         </Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={[ESTILO.button, ESTILO.buttonSave]} >
-                        <Text style={ESTILO.buttonSaveText} onPress={salvarToken}>
+                    <TouchableOpacity style={[ESTILO.button, ESTILO.buttonSave]} onPress={salvarToken}>
+                        <Text style={ESTILO.buttonSaveText}>
                             Salvar Senha
                         </Text>
                     </TouchableOpacity>
